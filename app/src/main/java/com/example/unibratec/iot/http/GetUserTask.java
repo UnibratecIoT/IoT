@@ -13,11 +13,14 @@ public class GetUserTask extends AsyncTaskLoader<User> {
 
     User mUser;
     Context mContext;
+    String mUserId;
 
-    public GetUserTask(Context context)
+    public GetUserTask(Context context, String userId)
     {
         super(context);
         mContext = context;
+        mUserId = userId;
+
     }
 
     @Override
@@ -39,7 +42,7 @@ public class GetUserTask extends AsyncTaskLoader<User> {
     @Override
     public User loadInBackground() {
 
-        mUser = UserHttp.getUserData(mContext);
+        mUser = UserHttp.getUserData(mContext, mUserId);
         return mUser;
     }
 }

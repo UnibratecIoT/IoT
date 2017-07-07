@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_location_city_black_24dp" />
+
+        <TextView
+            android:id="@+id/textUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageView"
+            android:textStyle="bold"
+            android:text="Fulano" />
+
+        <TextView
+            android:id="@+id/textAddress"
+            android:layout_width="90sp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_below="@id/textUserName"
+            android:text="Rua da puta que pariu, 666" />
+
+        <ImageView
+            android:id="@+id/imageViewId"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_data_user"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/imageViewId"
+            android:id="@+id/textId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="115dp"
+            android:layout_toEndOf="@id/textUserName"
+            android:text="123"
+            />
+
+        <ImageView
+            android:id="@+id/imageViewVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            app:srcCompat="@drawable/ic_invert_colors_black_24dp" />
+
+        <TextView
+            android:id="@+id/textVolume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:paddingTop="4dp"
+            android:layout_toRightOf="@+id/imageViewVolume"
+            android:layout_toEndOf="@id/textId"
+            android:text="213113"
+            />
+
+        <ImageView
+            android:id="@+id/imageViewPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="340dp"
+            app:srcCompat="@drawable/ic_battery_full_black_24dp" />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
