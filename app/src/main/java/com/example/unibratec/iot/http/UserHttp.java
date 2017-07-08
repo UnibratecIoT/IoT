@@ -5,7 +5,9 @@ package com.example.unibratec.iot.http;
  */
 
 import android.content.Context;
+import android.util.Log;
 
+import com.example.unibratec.iot.model.Data;
 import com.example.unibratec.iot.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,6 +34,7 @@ public class UserHttp {
 
     public static final String URL_CLOUD_BY_ID = "";
     public static final String URL_CLOUD_ALL = "";
+    public static final String URL_DATA = "http://iot-pdm.mybluemix.net/bruno";
 
     public static User getUserData(Context context, String id) {
 
@@ -53,6 +56,38 @@ public class UserHttp {
             Gson gson = gsonBuilder.create();
             user = gson.fromJson(json, User.class);
             return user;
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static Data getData(Context context) {
+
+        Data data = new Data();
+
+        OkHttpClient httpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(URL_DATA)
+                .build();
+
+        Response response = null;
+
+        try
+        {
+            response = httpClient.newCall(request).execute();
+            String json = response.body().string();
+            Log.d("TESTE", json);
+            GsonBuilder gsonBuilder = new GsonBuilder().serializeNulls();
+            gsonBuilder.registerTypeAdapter(Data.class, new DataDeserializer(context));
+            Gson gson = gsonBuilder.create();
+            data = gson.fromJson(json, Data.class);
+
+            Log.d("TESTE", data.getMyName());
+            return data;
         }
         catch(IOException e)
         {
